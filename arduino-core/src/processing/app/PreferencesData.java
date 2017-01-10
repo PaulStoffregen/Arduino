@@ -247,8 +247,8 @@ public class PreferencesData {
     return Arrays.asList(get(key, "").split(","));
   }
 
-  public static void setCollection(String key, Collection<String> values) {
-    String value = values.stream().collect(Collectors.joining(","));
+  public static void setCollection(String key, Collection<String> values, int max) {
+    String value = values.stream().limit(max).collect(Collectors.joining(","));
     set(key, value);
   }
 }

@@ -586,13 +586,13 @@ public class Base {
     sketches.add(sketch.getSketch().getMainFilePath());
     sketches.addAll(PreferencesData.getCollection("recent.sketches"));
 
-    PreferencesData.setCollection("recent.sketches", sketches);
+    PreferencesData.setCollection("recent.sketches", sketches, RECENT_SKETCHES_MAX_SIZE);
   }
 
   protected void removeRecentSketchPath(String path) {
     Collection<String> sketches = new LinkedList<>(PreferencesData.getCollection("recent.sketches"));
     sketches.remove(path);
-    PreferencesData.setCollection("recent.sketches", sketches);
+    PreferencesData.setCollection("recent.sketches", sketches, RECENT_SKETCHES_MAX_SIZE);
   }
 
   // Because of variations in native windowing systems, no guarantees about
